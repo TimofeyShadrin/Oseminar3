@@ -1,5 +1,8 @@
 package ru.gb.studygroup.service;
 
-public interface PersonDataService {
+import java.util.List;
 
+public interface PersonDataService<T> {
+    void createPerson(Integer quantity);
+    List<T> getAll();
 }
