@@ -5,6 +5,6 @@ import ru.gb.studygroup.controller.Controller;
 public class App {
     public static void main(String[] args) {
         Controller controller = new Controller();
-        controller.createStudyGroup(3, 4);
+        controller.createStudyGroup(3, 8);
     }
 }

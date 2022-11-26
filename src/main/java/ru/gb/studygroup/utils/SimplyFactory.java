@@ -13,7 +13,7 @@ public class SimplyFactory<T extends Person>{
         this.person = person;
     }
 
-    public T createPerson(Gender gender) throws IOException {
+    public void createPerson(Gender gender) throws IOException {
 
         switch (gender) {
             case MALE:
@@ -31,6 +31,5 @@ public class SimplyFactory<T extends Person>{
             default:
                 throw new IllegalStateException("Unexpected value: " + gender);
         }
-        return person;
     }
 }
