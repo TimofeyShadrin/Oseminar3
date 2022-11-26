@@ -22,7 +22,7 @@ public class GroupFactory<T extends Person> {
             Gender gender = Gender.FEMALE;
             if (choice) gender = Gender.MALE;
             try {
-                new SimplyFactory<T>(person)
+                new SimplyFactory<>(person)
                         .createPerson(gender);
             } catch (IOException e) {
                 throw new IllegalStateException("File with resources not found!");
