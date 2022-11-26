@@ -37,18 +37,24 @@ public class Controller {
             studyGroupService.createStudyGroup(teacher, students.get());
         });
 
-        List<StudyGroup> studyGroups = studyGroupService.getStudyGroups();
-        sendOnConsole.viewList(sortedStudentList(studyGroups));
-        sendOnConsole.viewList(studyGroups);
-    }
-
-    private List<Student> sortedStudentList (List<StudyGroup> studyGroups) {
-        return studyGroups.stream()
+        List<StudyGroup> studyGroups = studyGroupService.getStudyGroups().stream()
                 .peek(studyGroup -> {
                     Long number = studyGroup.getStudyGroupID();
                     studyGroup.getStudentList()
                             .forEach(student -> student.setNumberStudyGroup(number));
                 })
+                .peek(studyGroup -> {
+                    Long number = studyGroup.getStudyGroupID();
+                    studyGroup.getTeacher().setNumberStudyGroup(number);
+                })
+                .collect(Collectors.toList());
+
+        sendOnConsole.viewList(studyGroups);
+        sendOnConsole.viewList(sortedStudentList(studyGroups));
+    }
+
+    private List<Student> sortedStudentList (List<StudyGroup> studyGroups) {
+        return studyGroups.stream()
                 .map(StudyGroup::getStudentList)
                 .flatMap(Collection::stream)
                 .sorted((Student o1, Student o2) -> {

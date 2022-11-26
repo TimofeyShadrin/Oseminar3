@@ -29,7 +29,7 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return String.format("\n%s %s %s, birthday: %s, number of group %d \nid: %s",
+        return String.format("\n%s %s %s, birthday: %s, group No %d \nid: %s",
                 super.getName(),
                 super.getPatronymic(),
                 super.getSurname(),
