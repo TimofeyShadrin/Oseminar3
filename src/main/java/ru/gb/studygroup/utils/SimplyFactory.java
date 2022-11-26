@@ -5,7 +5,7 @@ import ru.gb.studygroup.data.Person;
 
 import java.io.IOException;
 
-public class SimplyFactory<T extends Person>{
+public class SimplyFactory<T extends Person> {
 
     private final T person;
 

@@ -7,16 +7,18 @@ import ru.gb.studygroup.service.StudentService;
 import ru.gb.studygroup.service.StudyGroupService;
 import ru.gb.studygroup.service.TeacherService;
 import ru.gb.studygroup.utils.GroupFactory;
-import ru.gb.studygroup.view.StudyGroupView;
+import ru.gb.studygroup.view.SendOnConsole;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 public class Controller {
 
     private final TeacherService teacherService = new TeacherService();
     private final StudyGroupService studyGroupService = new StudyGroupService();
-    private final StudyGroupView studyGroupView = new StudyGroupView();
+    private final SendOnConsole sendOnConsole = new SendOnConsole();
 
     public void createStudyGroup(Integer quantityTeachers, Integer quantityStudents) {
 
@@ -36,6 +38,24 @@ public class Controller {
         });
 
         List<StudyGroup> studyGroups = studyGroupService.getStudyGroups();
-        studyGroupView.sendOnConsole(studyGroups);
+        sendOnConsole.viewList(sortedStudentList(studyGroups));
+        sendOnConsole.viewList(studyGroups);
+    }
+
+    private List<Student> sortedStudentList (List<StudyGroup> studyGroups) {
+        return studyGroups.stream()
+                .peek(studyGroup -> {
+                    Long number = studyGroup.getStudyGroupID();
+                    studyGroup.getStudentList()
+                            .forEach(student -> student.setNumberStudyGroup(number));
+                })
+                .map(StudyGroup::getStudentList)
+                .flatMap(Collection::stream)
+                .sorted((Student o1, Student o2) -> {
+                    if ((o1.getSurname()).equals(o2.getSurname()))
+                        return (o1.getName()).compareTo(o2.getName());
+                    return (o1.getSurname()).compareTo(o2.getSurname());
+                    })
+                .collect(Collectors.toList());
     }
 }

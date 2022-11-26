@@ -37,12 +37,11 @@ public class StudyGroup {
 
     @Override
     public String toString() {
-        return "\n\nStudy group No " + this.id +
+        return "\nStudy group No " + this.id +
                 "\nTeacher: " + teacher +
                 "\nStudents" +
                 studentList.toString()
                         .replace("[", "")
-                        .replace("]", "") +
-                "\n";
+                        .replace("]", "");
     }
 }

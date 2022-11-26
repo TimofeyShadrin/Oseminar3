@@ -6,6 +6,7 @@ import java.time.LocalDate;
 public class Student extends Person{
 
     private final RandomDate birthday;
+    private Long numberStudyGroup;
 
     public Student() {
         super();
@@ -18,13 +19,22 @@ public class Student extends Person{
         return birthday.nextDate().toString();
     }
 
+    public Long getNumberStudyGroup() {
+        return numberStudyGroup;
+    }
+
+    public void setNumberStudyGroup(Long numberStudyGroup) {
+        this.numberStudyGroup = numberStudyGroup;
+    }
+
     @Override
     public String toString() {
-        return String.format("\n%s %s %s, birthday: %s, \nid: %s",
+        return String.format("\n%s %s %s, birthday: %s, number of group %d \nid: %s",
                 super.getName(),
                 super.getPatronymic(),
                 super.getSurname(),
                 this.birthday.nextDate(),
+                this.numberStudyGroup,
                 super.getUniqueID());
     }
 }

@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 public class Teacher extends Person{
     private final RandomDate birthday;
+    private Integer numberStudyGroup;
 
     public Teacher() {
         super();
@@ -16,6 +17,14 @@ public class Teacher extends Person{
 
     public String getBirthday() {
         return birthday.nextDate().toString();
+    }
+
+    public Integer getNumberStudyGroup() {
+        return numberStudyGroup;
+    }
+
+    public void setNumberStudyGroup(Integer numberStudyGroup) {
+        this.numberStudyGroup = numberStudyGroup;
     }
 
     @Override
