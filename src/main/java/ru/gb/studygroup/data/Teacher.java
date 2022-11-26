@@ -29,11 +29,12 @@ public class Teacher extends Person{
 
     @Override
     public String toString() {
-        return String.format("%s %s %s, birthday: %s, \nid: %s",
+        return String.format("\n%s %s %s, birthday: %s, group No %d \nid: %s",
                 super.getName(),
                 super.getPatronymic(),
                 super.getSurname(),
                 this.birthday.nextDate(),
+                this.numberStudyGroup,
                 super.getUniqueID());
     }
 }
