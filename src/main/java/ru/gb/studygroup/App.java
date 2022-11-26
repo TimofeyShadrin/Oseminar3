@@ -1,16 +1,10 @@
 package ru.gb.studygroup;
 
-import ru.gb.studygroup.data.Gender;
-import ru.gb.studygroup.data.Student;
-import ru.gb.studygroup.data.Teacher;
+import ru.gb.studygroup.controller.Controller;
 
-public class App
-{
-    public static void main( String[] args )
-    {
-        System.out.println(new Teacher("Ivan",
-                "Jovanovich",
-                "Petrov",
-                Gender.MALE));
+public class App {
+    public static void main(String[] args) {
+        Controller controller = new Controller();
+        controller.createStudyGroup(3, 4);
     }
 }

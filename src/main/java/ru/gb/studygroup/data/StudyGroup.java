@@ -43,6 +43,6 @@ public class StudyGroup {
                 studentList.toString()
                         .replace("[", "")
                         .replace("]", "") +
-                "}\n";
+                "\n";
     }
 }

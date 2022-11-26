@@ -15,7 +15,9 @@ public class TeacherService implements PersonDataService<Teacher>{
 
     @Override
     public void createPerson(Integer quantity) {
-        this.teachers.add(new Teacher());
+        for (int i = 0; i < quantity; i++) {
+            this.teachers.add(new Teacher());
+        }
     }
 
     @Override

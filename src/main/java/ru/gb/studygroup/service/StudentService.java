@@ -15,11 +15,18 @@ public class StudentService implements PersonDataService<Student> {
 
     @Override
     public void createPerson(Integer quantity) {
-        students.add(new Student());
+        for (int i = 0; i < quantity; i++) {
+            students.add(new Student());
+        }
     }
 
     @Override
     public List<Student> getAll() {
+        return students;
+    }
+
+    public List<Student> clearAll() {
+        students.clear();
         return students;
     }
 }
