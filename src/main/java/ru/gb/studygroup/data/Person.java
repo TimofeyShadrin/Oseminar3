@@ -14,6 +14,13 @@ public class Person {
         this.uniqueID = UUID.randomUUID().toString();
     }
 
+    public Person(String name, String patronymic, String surname) {
+        this.name = name;
+        this.patronymic = patronymic;
+        this.surname = surname;
+        this.uniqueID = UUID.randomUUID().toString();
+    }
+
     public String getUniqueID() {
         return uniqueID;
     }
