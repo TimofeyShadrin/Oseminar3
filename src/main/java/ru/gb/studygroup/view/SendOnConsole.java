@@ -3,7 +3,7 @@ package ru.gb.studygroup.view;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class SendOnConsole{
+public class SendOnConsole {
 
     public <T> void viewList(List<T> groupList) {
         Logger logger = Logger.getAnonymousLogger();

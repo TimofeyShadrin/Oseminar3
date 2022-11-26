@@ -3,6 +3,7 @@ package ru.gb.studygroup.controller;
 import ru.gb.studygroup.data.Student;
 import ru.gb.studygroup.data.StudyGroup;
 import ru.gb.studygroup.data.Teacher;
+import ru.gb.studygroup.service.PersonDataService;
 import ru.gb.studygroup.service.StudentService;
 import ru.gb.studygroup.service.StudyGroupService;
 import ru.gb.studygroup.service.TeacherService;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class Controller {
 
-    private final TeacherService teacherService = new TeacherService();
+    private final PersonDataService<Teacher> teacherService = new TeacherService();
     private final StudyGroupService studyGroupService = new StudyGroupService();
     private final SendOnConsole sendOnConsole = new SendOnConsole();
 
