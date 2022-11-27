@@ -15,6 +15,9 @@ public class Teacher extends Person{
                 LocalDate.of(1999,12,29));
     }
 
+    /**
+     * @param dataOfBirth input year, month, date
+     */
     public Teacher(String name, String patronymic, String surname, Gender gender, Integer... dataOfBirth) {
         super(name, patronymic, surname, gender);
         this.birthday = new RandomDate(

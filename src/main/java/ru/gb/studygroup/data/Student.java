@@ -15,6 +15,9 @@ public class Student extends Person{
                 LocalDate.of(2005,12,29));
     }
 
+    /**
+     * @param dataOfBirth input year, month, date
+     */
     public Student(String name, String patronymic, String surname, Gender gender, Integer... dataOfBirth) {
         super(name, patronymic, surname, gender);
         this.birthday = new RandomDate(
