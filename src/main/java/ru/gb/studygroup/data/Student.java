@@ -15,6 +15,13 @@ public class Student extends Person{
                 LocalDate.of(2005,12,29));
     }
 
+    public Student(String name, String patronymic, String surname, Gender gender, Integer... dataOfBirth) {
+        super(name, patronymic, surname, gender);
+        this.birthday = new RandomDate(
+                LocalDate.of(dataOfBirth[0], dataOfBirth[1], dataOfBirth[2]),
+                LocalDate.of(dataOfBirth[0], dataOfBirth[1], dataOfBirth[2] + 1));
+    }
+
     public String getBirthday() {
         return birthday.nextDate().toString();
     }

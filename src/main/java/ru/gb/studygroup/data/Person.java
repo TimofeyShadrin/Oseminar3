@@ -2,7 +2,7 @@ package ru.gb.studygroup.data;
 
 import java.util.UUID;
 
-public class Person {
+public abstract class Person {
 
     private final String uniqueID;
     private String name;
@@ -14,10 +14,11 @@ public class Person {
         this.uniqueID = UUID.randomUUID().toString();
     }
 
-    public Person(String name, String patronymic, String surname) {
+    public Person(String name, String patronymic, String surname, Gender gender) {
         this.name = name;
         this.patronymic = patronymic;
         this.surname = surname;
+        this.gender = gender;
         this.uniqueID = UUID.randomUUID().toString();
     }
 
