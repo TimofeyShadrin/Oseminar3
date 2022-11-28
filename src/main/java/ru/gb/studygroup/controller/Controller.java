@@ -20,12 +20,11 @@ public class Controller {
     private final PersonDataService<Teacher> teacherService = new TeacherService();
     private final StudyGroupService studyGroupService = new StudyGroupService();
     private final SendOnConsole sendOnConsole = new SendOnConsole();
+    private final AtomicReference<List<Student>> students = new AtomicReference<>();;
 
     public void createStudyGroup(Integer quantityTeachers, Integer quantityStudents) {
 
         List<Teacher> teachers;
-        AtomicReference<List<Student>> students = new AtomicReference<>();
-
         teacherService.createPerson(quantityTeachers);
         teachers = teacherService.getAll();
         teachers = new GroupFactory<>(teachers).orderPerson();
